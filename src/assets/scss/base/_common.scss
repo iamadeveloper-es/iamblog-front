@@ -1,0 +1,25 @@
+.list-disc{
+    list-style: disc;
+}
+
+.text-underlined{
+    text-decoration: underline;
+}
+
+.section{
+    padding-top: 2.5em;
+
+    &:first-child{
+        padding-top: 5em;
+    }
+
+    &:first-child:has(.post__cover){
+        padding-top: var(--header-height);
+    }
+
+    &__title{
+        span{
+            color: rgb(var(--primary));
+        }
+    }
+}
