@@ -2,15 +2,18 @@
 import { onMounted } from 'vue';
 import AppFooter from './components/global/AppFooter.vue';
 import AppHeader from './components/global/AppHeader.vue';
-import { setColorScheme } from './utils/aplicationUtils';
+import { savedColorScheme, setColorScheme } from './utils/aplicationUtils';
+import { useAppStore } from '@/stores/appStore';
+
+const { appData, updateAppProperty } = useAppStore();
 
 const configApp = () => {
 
-  const theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 
-    'dark' : 
-    'light';
+  const appTheme = savedColorScheme();
 
-  setColorScheme(theme);
+  updateAppProperty('theme', appTheme)
+
+  setColorScheme(appTheme);
 }
 
 onMounted(() => {

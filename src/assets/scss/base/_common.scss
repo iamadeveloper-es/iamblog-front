@@ -10,7 +10,7 @@
     padding-top: 2.5em;
 
     &:first-child{
-        padding-top: 5em;
+        padding-top: var(--header-height);
     }
 
     &:first-child:has(.post__cover){
